@@ -8,7 +8,8 @@
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.vue src",
-    "test": "echo \"No test specified\" && exit 0"
+    "test": "echo \"No test specified\" && exit 0",
+    "build-electron-mac": "quasar build -m electron -b builder -T mac -A x64"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
@@ -21,8 +22,10 @@
     "babel-eslint": "^10.0.1",
     "devtron": "^1.4.0",
     "electron": "^5.0.0",
+    "electron-builder": "^21.1.5",
     "electron-debug": "^3.0.0",
     "electron-devtools-installer": "^2.2.4",
+    "electron-packager": "^14.0.3",
     "eslint": "^5.10.0",
     "eslint-loader": "^2.1.1",
     "eslint-plugin-vue": "^5.0.0"

@@ -13,7 +13,7 @@ module.exports = {
   // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
   // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
   extends: [
-    'plugin:vue/essential',
+    'plugin:vue/strongly-recommended',
     'airbnb-base'
   ],
 
@@ -31,8 +31,7 @@ module.exports = {
 
   // add your custom rules here
   rules: {
-    'no-param-reassign': 'off',
-
+    'no-param-reassign': 'warn',
     'import/first': 'off',
     'import/named': 'error',
     'import/namespace': 'error',
@@ -42,11 +41,13 @@ module.exports = {
     'import/no-unresolved': 'off',
     'import/no-extraneous-dependencies': 'off',
     'import/prefer-default-export': 'off',
-    'prefer-promise-reject-errors': 'off',
+    'prefer-promise-reject-errors': 'warn',
 
     // allow console.log during development only
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     // allow debugger during development only
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+
+    'no-unused-vars': ['warn', { vars: 'all', args: 'after-used', ignoreRestSiblings: true }],
   }
 }
