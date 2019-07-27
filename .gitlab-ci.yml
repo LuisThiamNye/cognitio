@@ -14,7 +14,3 @@ osx job:
   script:
     - npm install
     - npm run build-electron-mac
-
-branches:
-  except:
-    - "/^v\\d+\\.\\d+\\.\\d+$/"
