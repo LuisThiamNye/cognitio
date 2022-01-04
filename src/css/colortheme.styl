@@ -1,0 +1,48 @@
+blueshift(lightness, alpha = 1)
+  rgba(lightness - 2, lightness, lightness + 2, alpha)
+
+redshift(lightness, alpha = 1)
+  rgba(lightness + 2, lightness, lightness - 2, alpha)
+
+$page_background_alpha = .9
+$light_colors = {
+  main_text: blueshift(30),
+  page_background: blueshift(245),
+  page_background_transparent: blueshift(245, $page_background_alpha),
+  header: blueshift(225),
+  button_background: blueshift(245)
+}
+$dark_colors = {
+  main_text: redshift(245),
+  page_background: redshift(30),
+  page_background_transparent: redshift(30, $page_background_alpha),
+  header: redshift(60),
+  button_background: redshift(100)
+}
+
+common($colors)
+  h1, h2, h3, h4, h5, h6, p, div
+    color $colors['main_text']
+
+  .background, &, #q-app
+    background $colors['page_background']
+
+  .background-transparent
+    background $colors['page_background_transparent']
+
+  .button
+    background $colors['button_background']
+
+  .q-header
+    background-color $colors['header']
+
+class-dependent-rules(themeName)
+  // Hmm
+
+.light-colortheme
+  common($light_colors)
+  class-dependent-rules('.light-colortheme')
+
+.dark-colortheme
+  common($dark_colors)
+  class-dependent-rules('.dark-colortheme')

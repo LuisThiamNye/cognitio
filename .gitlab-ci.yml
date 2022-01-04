@@ -1,0 +1,21 @@
+# Official framework image. Look for the different tagged releases at:
+# https://hub.docker.com/r/library/node/tags/
+image: node:latest
+
+stages:
+  - build
+
+# This folder is cached between builds
+# http://docs.gitlab.com/ce/ci/yaml/README.html#cache
+cache:
+  paths:
+    - node_modules/
+
+osx job:
+  stage: build
+  script:
+    - npm install
+    - npx quasar build -m electron -b builder
+  artifacts:
+    paths:
+    - dist/electron/
